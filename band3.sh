@@ -38,7 +38,7 @@ echo "E-fermi=" $EFERMI " (from OUTCAR)"
 echo "x range= `awk 'BEGIN{print '"$START"'+'"$xt1"'}'`:$NKPT"
 echo "y range= $ymin:$ymax"
 
-export GNUPLOT_PS_DIR="/home/yezhy/download/gnuplot-5.0.0/term/PostScript"
+export GNUPLOT_PS_DIR="$HOME/download/gnuplot-5.0.0/term/PostScript"
 cat > $gnu_file <<EOF
 reset
 #set terminal pngcairo size 380,880 enhanced font 'Times-Roman,15'
