@@ -1,12 +1,12 @@
 #!/bin/bash 
-# a shell script to plot band structure from EIGENVAL and OUTCAR file 
-# run in the work directory of VASP or copy EIGENVAL (OUTCAR) to current directory
+# a shell script to plot band structure from EIGENVAL (OUTCAR) file 
+# run in the work directory of VASP or copy EIGENVAL to current directory
 
 # i/o and binary file
 eig_file='EIGENVAL'
 band_file='band.dat'
 kpt_file='kpt.dat'
-gnu_file='gnuband2.plt'
+gnu_file='gnuband.plt'
 GNUBIN="gnuplot"  # keep gnuplot in $PATH or set to your gnuplot directory
 #GNUBIN="$HOME/bin/gnuplot"
 
@@ -21,10 +21,9 @@ EFERMI=`grep  "E-fermi" OUTCAR|tail -1|awk '{print $3}'`
 # EFERMI from Gap.sh as the VBM
 #VBM=`$HOME/bin/Gap.sh |awk '/VBM/{print $4}'`  # set to your Gap.sh directory
 #EFERMI=$VBM
-# EFERMI from hand
+# EFERMI by hand
 #EFERMI=6.396555
 
-#variable set by hand
 START=29 #skip leading k-points for HSE-manner of k-points
 ymin=-10;ymax=5
 # set to your xtics
@@ -41,7 +40,7 @@ echo "reading $eig_file..."
 echo "number of valent electrons=$VALENT"
 echo "number of k points=" $NKPT
 echo "number of bands=" $NBAND
-echo "E-fermi=" $EFERMI " (from OUTCAR)"
+echo "E-fermi(Zero in plot)=" $EFERMI
 echo "x range= `awk 'BEGIN{print '"$START"'+'"$xt1"'}'`:$NKPT"
 echo "y range= $ymin:$ymax"
 
