@@ -1,6 +1,6 @@
 #!/bin/bash 
 # a shell script to plot band structure from EIGENVAL and OUTCAR file 
-# run in the work directory of VASP or copy EIGENVAL KPOINTS OUTCAR to current directory
+# run in the work directory of VASP or copy EIGENVAL (OUTCAR) to current directory
 
 # i/o and binary file
 eig_file='EIGENVAL'
