@@ -7,7 +7,8 @@ eig_file='EIGENVAL'
 band_file='band.dat'
 kpt_file='kpt.dat'
 gnu_file='gnuband2.plt'
-GNUBIN="$HOME/bin/gnuplot"  # set to your gnuplot directory
+GNUBIN="gnuplot"  # keep gnuplot in $PATH or set to your gnuplot directory
+#GNUBIN="$HOME/bin/gnuplot"
 
 # variable read from file
 VALENT=`awk 'NR==6{print $1}' $eig_file`
@@ -44,7 +45,7 @@ echo "E-fermi=" $EFERMI " (from OUTCAR)"
 echo "x range= `awk 'BEGIN{print '"$START"'+'"$xt1"'}'`:$NKPT"
 echo "y range= $ymin:$ymax"
 
-export GNUPLOT_PS_DIR="$HOME/download/gnuplot-5.0.0/term/PostScript"
+export GNUPLOT_PS_DIR="$HOME/download/gnuplot-5.0.0/term/PostScript"  # for ps and pdf format, otherwise ignored, set to your gnuplot source directory
 cat > $gnu_file <<EOF
 reset
 #set terminal pngcairo size 380,880 enhanced font 'Times-Roman,15'
