@@ -7,20 +7,26 @@ eig_file='EIGENVAL'
 band_file='band.dat'
 kpt_file='kpt.dat'
 gnu_file='gnuband2.plt'
-GNUBIN="$HOME/bin/gnuplot"
+GNUBIN="$HOME/bin/gnuplot"  # set to your gnuplot directory
 
 # variable read from file
 VALENT=`awk 'NR==6{print $1}' $eig_file`
   NKPT=`awk 'NR==6{print $2}' $eig_file`
  NBAND=`awk 'NR==6{print $3}' $eig_file`
-EFERMI=`grep  "E-fermi" OUTCAR|tail -1|awk '{print $3}'`
-VBM=`$HOME/bin/Gap.sh |awk '/VBM/{print $4}'`
+ 
+# the zero in plot are set by EFERMI, uncomment for your choice
+# EFERMI from OUTCAR
+EFERMI=`grep  "E-fermi" OUTCAR|tail -1|awk '{print $3}'`  
+# EFERMI from Gap.sh as the VBM
+#VBM=`$HOME/bin/Gap.sh |awk '/VBM/{print $4}'`  # set to your Gap.sh directory
+#EFERMI=$VBM
+# EFERMI from hand
 #EFERMI=6.396555
-EFERMI=$VBM
 
 #variable set by hand
-START=29 #skip leading k-points
+START=29 #skip leading k-points for HSE-manner of k-points
 ymin=-10;ymax=5
+# set to your xtics
 xt1=1;xt2=101;xt3=201;xt4=999;xt5=999;xt6=999;xt7=999;xt8=999;xt9=999;xt10=999;xt11=999;xt12=999;xt13=999
 
 echo -n "" > $band_file
