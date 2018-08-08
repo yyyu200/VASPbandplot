@@ -6,6 +6,7 @@ run in the work directory of VASP or copy EIGENVAL (OUTCAR if use Gap.sh) to cur
 Dependencies:  
 gnuplot  
 awk  
+optional : https://github.com/eveshower/VASPGap  
 
 There are 3 ways to set the zero in plot (by EFERMI), uncomment for your choice:  
 1. for metals, read fermi energy from OUTCAR  
